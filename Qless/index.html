@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Hands Medical Center - World-Class Care</title>
+    <!-- Hubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- TOP HEADER / NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="image/logo.png" alt="Healing Hands Medical Center Logo height=50" style="height: 80px;">
+            </div>
+            <nav class="nav-links">
+                <a href="#dokter">cari dokter</a>
+                <a href="#departments">Department</a>
+                <a href="./lokasi.html">Lokasi</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">kontak kami</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="book-appointment-btn" onclick="openModal()">Booking</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Qless<br><span>Untuk kamu.</span></h1>
+            <p>Qless adalah salah satu teknologi yang di buat untuk membantu masyrakat dalam mengambil antraian dalam rumah sakit. </p>
+            
+            <div class="hero-badges">
+                <span><i class="fa-solid fa-shield-halved"></i> JCI Accredited</span>
+                <span><i class="fa-solid fa-clock"></i> 24/7 Emergency Care</span>
+                <span><i class="fa-solid fa-microchip"></i> Advanced Technology</span>
+                <span><i class="fa-solid fa-user-doctor"></i> 500+ Expert Doctors</span>
+            </div>
+
+            <!-- APPOINTMENT QUICK WIDGET -->
+            <div class="appointment-widget">
+                <div class="widget-tabs">
+                    <img src="./image/boking.png" alt="Calendar" style="height: 40px; margin-right: 10px;">
+                    <button><i class="fa-solid fa-user-doctor"></i> Find a Doctor</button>
+                </div>
+                <form class="widget-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select id="widgetDept">
+                            <option>Select Department</option>
+                            <option>Cardiology</option>
+                            <option>Neurology</option>
+                            <option>Orthopedics</option>
+                            <option>Pediatrics</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Doctor (Optional)</label>
+                        <select id="widgetDoc">
+                            <option>Select Doctor</option>
+                            <option>Dr. Rajeev Sharma</option>
+                            <option>Dr. Ananya Patel</option>
+                            <option>Dr. Vikram Mehta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="widgetDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <select id="widgetTime">
+                            <option>Select Time</option>
+                            <option>09:00 AM</option>
+                            <option>01:00 PM</option>
+                            <option>04:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">boking untuk konsultasi</button>
+                        <a href="#" class="link-secondary">View My Appointments</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK UTILITY MENU -->
+    <section class="utility-menu">
+        <div class="utility-container">
+            <div class="utility-item">
+                <i class="fa-solid fa-user-doctor"></i>
+                <div>
+                    <h4>cari dokter kamu</h4>
+                    <p>nama dan spesialis</p>
+                </div>
+            </div>
+            <div class="utility-item">
+                <i class="fa-solid fa-calendar-days"></i>
+                <div>
+                    <h4>Book Appointment</h4>
+                    <p>Quick & easy scheduling</p>
+                </div>
+            </div>
+            <div class="utility-item">
+                <i class="fa-solid fa-notes-medical"></i>
+                <div>
+                    <h4>Health Checkups</h4>
+                    <p>Comprehensive packages</p>
+                </div>
+            </div>
+            <div class="utility-item">
+                <i class="fa-solid fa-file-medical"></i>
+                <div>
+                    <h4>Lab Reports</h4>
+                    <p>View online securely</p>
+                </div>
+            </div>
+            <div class="utility-item">
+                <i class="fa-solid fa-credit-card"></i>
+                <div>
+                    <h4>Pay Bills</h4>
+                    <p>Secure online payments</p>
+                </div>
+            </div>
+            <div class="utility-item">
+                <i class="fa-solid fa-shield-heart"></i>
+                <div>
+                    <h4>Insurance</h4>
+                    <p>We accept major insurers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPARTMENTS SECTION -->
+    <section class="departments" id="departments">
+        <div class="section-header">
+            <h2>Our Departments</h2>
+            <a href="#" class="view-all">View All Departments <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="dept-grid">
+            <div class="dept-card">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Cardiology</span>
+                <small>Heart Care</small>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-brain"></i>
+                <span>Neurology</span>
+                <small>Brain & Nerves</small>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-bone"></i>
+                <span>Orthopedics</span>
+                <small>Bones & Joints</small>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-stethoscope"></i>
+                <span>Gastroenterology</span>
+                <small>Digestive Health</small>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-child"></i>
+                <span>Pediatrics</span>
+                <small>Children Care</small>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-venus"></i>
+                <span>Gynecology</span>
+                <small>Women's Health</small>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-kidneys"></i>
+                <span>Urology</span>
+                <small>Urinary Health</small>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-dna"></i>
+                <span>Oncology</span>
+                <small>Cancer Care</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMERGENCY BANNER -->
+    <section class="emergency-banner">
+        <div class="emergency-content">
+            <div class="emergency-text">
+                <img src="./image/ambulan.png"style="height: 60px; margin-right: 15px;">
+                <div>
+                    <h3>Emergency Care 24/7</h3>
+                    <p>For life-threatening emergencies, we are always here.</p>
+                </div>
+            </div>
+            <a href="tel:081239211752" class="emergency-phone">
+                <i class="fa-solid fa-phone-volume"></i> 081227125158
+                <span>Untuk emergensi saat darurat</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h2>1.2M+</h2>
+                <p>Patients Treated</p>
+            </div>
+            <div class="stat-item">
+                <h2>500+</h2>
+                <p>Expert Doctors</p>
+            </div>
+            <div class="stat-item">
+                <h2>250+</h2>
+                <p>Hospital Beds</p>
+            </div>
+            <div class="stat-item">
+                <h2>45+</h2>
+                <p>Specialties</p>
+            </div>
+            <div class="stat-item">
+                <h2>24/7</h2>
+                <p>Emergency Care</p>
+            </div>
+            <div class="stat-item">
+                <h2>98%</h2>
+                <p>Patient Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <i class="fa-solid fa-hospital"></i>
+                    <span>Healing Hands <small>Medical Center</small></span>
+                </div>
+                <p>Compassionate care, advanced medicine, healthier lives.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Find a Doctor</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Patients & Visitors</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>For Patients</h4>
+                <ul>
+                    <li><a href="#">Patient Portal</a></li>
+                    <li><a href="#">Insurance & Billing</a></li>
+                    <li><a href="#">Pay Bills</a></li>
+                    <li><a href="#">Lab Reports</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Locations</h4>
+                <p><strong>Main Medical Center</strong><br>123 Wellness Blvd, Downtown, Metropolis, USA 10001</p>
+                <p><strong>City Care Clinic</strong><br>45 Health Street, Midtown, USA 10002</p>
+                <a href="#" class="view-all-loc">View All Locations <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Stay updated with news & health tips.</p>
+                <form onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Healing Hands Medical Center. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL APPOINTMENT -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Book an Appointment</h2>
+            <p>Silakan isi data diri Anda untuk membuat janji temu dengan dokter.</p>
+            <form onsubmit="handleModalSubmit(event)">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="modalName" required placeholder="Masukkan nama Anda" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Nomor Telepon</label>
+                    <input type="tel" id="modalPhone" required placeholder="Contoh: 08123456789" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Pilih Spesialisasi / Dokter</label>
+                    <select id="modalDept" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option>Cardiology - Dr. Rajeev Sharma</option>
+                        <option>Neurology - Dr. Ananya Patel</option>
+                        <option>Orthopedics - Dr. Vikram Mehta</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; background: #0284c7; color: white; border: none; border-radius: 5px; cursor: pointer;">Konfirmasi Janji Temu</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hubungkan file JS eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
