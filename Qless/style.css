@@ -28,6 +28,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
+    position: relative;
 }
 
 .logo {
@@ -44,6 +45,12 @@ body {
     font-size: 10px;
     color: #64748b;
     text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 26px;
 }
 
 .nav-links {
@@ -92,9 +99,77 @@ body {
     background-color: #0369a1;
 }
 
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #0284c7;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu-toggle:focus-visible,
+.nav-links a:focus-visible,
+.nav-actions button:focus-visible {
+    outline: 3px solid rgba(2, 132, 199, 0.35);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        z-index: 101;
+        width: min(320px, calc(100vw - 40px));
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        background: #ffffff;
+        border-top: 3px solid #0284c7;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+    }
+
+    .nav-menu.is-open {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .nav-links a {
+        padding: 8px 10px;
+        border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+        background: #f0f9ff;
+    }
+
+    .nav-actions {
+        justify-content: space-between;
+        padding-top: 12px;
+        border-top: 1px solid #e2e8f0;
+    }
+}
+
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('./image/hero.png') center/cover no-repeat;
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('./image/hero.webp') center/cover no-repeat;
     color: white;
     padding: 60px 20px;
     display: flex;
@@ -235,6 +310,115 @@ body {
     text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        padding: 44px 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-badges {
+        gap: 10px 14px;
+        padding: 12px 14px;
+    }
+
+    .appointment-widget {
+        border-radius: 12px;
+    }
+
+    .widget-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .form-group {
+        min-width: 0;
+    }
+
+    .form-group select,
+    .form-group input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .form-actions {
+        grid-column: 1 / -1;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 36px 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .hero-badges {
+        gap: 8px 12px;
+        margin-bottom: 22px;
+        font-size: 11px;
+    }
+
+    .widget-tabs {
+        align-items: center;
+        padding: 8px 12px;
+    }
+
+    .widget-tabs img {
+        width: 36px;
+        height: 36px !important;
+        object-fit: contain;
+    }
+
+    .widget-tabs button {
+        padding: 10px 4px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .widget-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .form-group {
+        gap: 6px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+    .form-group select,
+    .form-group input {
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .form-actions {
+        grid-column: auto;
+        padding-top: 4px;
+    }
+
+    .form-actions .btn-primary {
+        min-height: 46px;
+        padding: 12px;
+        line-height: 1.35;
+    }
+}
+
 /* Utility Menu Bar */
 .utility-menu {
     background: white;
@@ -305,12 +489,16 @@ body {
     font-size: 14px;
 }
 
+
+/* Departments Section */
 .dept-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 15px;
+    align-items: stretch;
 }
 
+/* Department Card */
 .dept-card {
     background: white;
     padding: 20px;
@@ -319,31 +507,89 @@ body {
     border: 1px solid #e2e8f0;
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .dept-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     border-color: #0284c7;
 }
 
-.dept-card i {
-    font-size: 28px;
-    color: #0284c7;
+/* Area ikon: tinggi selalu sama */
+.dept-icon {
+    width: 100%;
+    height: 36px;
+    flex: 0 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 10px;
 }
 
+.dept-icon i {
+    display: inline-block;
+    font-size: 28px;
+    line-height: 1;
+    color: #0284c7;
+    margin: 0;
+}
+
+/* SVG lokal Urology */
+.dept-icon .urology-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    background-image: url("./urology.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Judul: tinggi seragam agar deskripsi sejajar */
 .dept-card span {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 36px;
     font-weight: 600;
     font-size: 13px;
+    line-height: 18px;
     margin-bottom: 4px;
 }
 
+/* Deskripsi */
 .dept-card small {
+    display: block;
     font-size: 11px;
+    line-height: 18px;
     color: #64748b;
 }
+
+/* Tablet */
+@media (max-width: 768px) {
+    .dept-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .dept-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .dept-card {
+        padding: 16px 10px;
+    }
+}
+
 
 /* Emergency Banner */
 .emergency-banner {

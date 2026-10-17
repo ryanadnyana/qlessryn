@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome untuk ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
 </head>
 <body>
 
@@ -15,27 +18,32 @@
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="image/logo.png" alt="Healing Hands Medical Center Logo height=50" style="height: 80px;">
+                <img src="image/logo.webp" alt="Healing Hands Medical Center Logo height=50" style="height: 80px;">
             </div>
-            <nav class="nav-links">
-                <a href="#dokter">cari dokter</a>
-                <a href="#departments">Department</a>
-                <a href="./lokasi.html">Lokasi</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">kontak kami</a>
-            </nav>
-            <div class="nav-actions">
-                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button class="book-appointment-btn" onclick="openModal()">Booking</button>
+            <div class="nav-menu" id="primary-navigation">
+                <nav class="nav-links">
+                    <a href="#dokter">Find a Doctor</a>
+                    <a href="#departments">Department</a>
+                    <a href="./lokasi.html">Location</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="nav-actions">
+                    <button class="search-btn" type="button" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="book-appointment-btn" onclick="openModal()">Booking</button>
+                </div>
             </div>
+            <button class="menu-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="primary-navigation">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
     </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Qless<br><span>Untuk kamu.</span></h1>
-            <p>Qless adalah salah satu teknologi yang di buat untuk membantu masyrakat dalam mengambil antraian dalam rumah sakit. </p>
+            <h1>Qless<br><span>For You.</span></h1>
+            <p>Qless is a technology created to help people queue up in hospitals. </p>
             
             <div class="hero-badges">
                 <span><i class="fa-solid fa-shield-halved"></i> JCI Accredited</span>
@@ -47,7 +55,7 @@
             <!-- APPOINTMENT QUICK WIDGET -->
             <div class="appointment-widget">
                 <div class="widget-tabs">
-                    <img src="./image/boking.png" alt="Calendar" style="height: 40px; margin-right: 10px;">
+                    <img src="./image/boking.webp" alt="Calendar" style="height: 40px; margin-right: 10px;">
                     <button><i class="fa-solid fa-user-doctor"></i> Find a Doctor</button>
                 </div>
                 <form class="widget-form" onsubmit="handleFormSubmit(event)">
@@ -84,7 +92,7 @@
                         </select>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn-primary">boking untuk konsultasi</button>
+                        <button type="submit" class="btn-primary">Booking for Consultation</button>
                         <a href="#" class="link-secondary">View My Appointments</a>
                     </div>
                 </form>
@@ -98,8 +106,8 @@
             <div class="utility-item">
                 <i class="fa-solid fa-user-doctor"></i>
                 <div>
-                    <h4>cari dokter kamu</h4>
-                    <p>nama dan spesialis</p>
+                    <h4>Find your Doctor</h4>
+                    <p>Name & specialist</p>
                 </div>
             </div>
             <div class="utility-item">
@@ -146,55 +154,80 @@
             <h2>Our Departments</h2>
             <a href="#" class="view-all">View All Departments <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-        <div class="dept-grid">
-            <div class="dept-card">
-                <i class="fa-solid fa-heart-pulse"></i>
-                <span>Cardiology</span>
-                <small>Heart Care</small>
-            </div>
-            <div class="dept-card">
-                <i class="fa-solid fa-brain"></i>
-                <span>Neurology</span>
-                <small>Brain & Nerves</small>
-            </div>
-            <div class="dept-card">
-                <i class="fa-solid fa-bone"></i>
-                <span>Orthopedics</span>
-                <small>Bones & Joints</small>
-            </div>
-            <div class="dept-card">
-                <i class="fa-solid fa-stethoscope"></i>
-                <span>Gastroenterology</span>
-                <small>Digestive Health</small>
-            </div>
-            <div class="dept-card">
-                <i class="fa-solid fa-child"></i>
-                <span>Pediatrics</span>
-                <small>Children Care</small>
-            </div>
-            <div class="dept-card">
-                <i class="fa-solid fa-venus"></i>
-                <span>Gynecology</span>
-                <small>Women's Health</small>
-            </div>
-            <div class="dept-card">
-                <i class="fa-solid fa-kidneys"></i>
-                <span>Urology</span>
-                <small>Urinary Health</small>
-            </div>
-            <div class="dept-card">
-                <i class="fa-solid fa-dna"></i>
-                <span>Oncology</span>
-                <small>Cancer Care</small>
-            </div>
+        
+<div class="dept-grid">
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
         </div>
+        <span>Cardiology</span>
+        <small>Heart Care</small>
+    </div>
+
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+        <span>Neurology</span>
+        <small>Brain & Nerves</small>
+    </div>
+
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="fa-solid fa-bone"></i>
+        </div>
+        <span>Orthopedics</span>
+        <small>Bones & Joints</small>
+    </div>
+
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="fa-solid fa-stethoscope"></i>
+        </div>
+        <span>Gastroenterology</span>
+        <small>Digestive Health</small>
+    </div>
+
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="fa-solid fa-child"></i>
+        </div>
+        <span>Pediatrics</span>
+        <small>Children Care</small>
+    </div>
+
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="fa-solid fa-venus"></i>
+        </div>
+        <span>Gynecology</span>
+        <small>Women's Health</small>
+    </div>
+
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="urology-icon"></i>
+        </div>
+        <span>Urology</span>
+        <small>Urinary Health</small>
+    </div>
+
+    <div class="dept-card">
+        <div class="dept-icon">
+            <i class="fa-solid fa-dna"></i>
+        </div>
+        <span>Oncology</span>
+        <small>Cancer Care</small>
+    </div>
+</div>
+
     </section>
 
     <!-- EMERGENCY BANNER -->
     <section class="emergency-banner">
         <div class="emergency-content">
             <div class="emergency-text">
-                <img src="./image/ambulan.png"style="height: 60px; margin-right: 15px;">
+                <img src="./image/ambulan.webp"style="height: 60px; margin-right: 15px;">
                 <div>
                     <h3>Emergency Care 24/7</h3>
                     <p>For life-threatening emergencies, we are always here.</p>
@@ -202,7 +235,7 @@
             </div>
             <a href="tel:081239211752" class="emergency-phone">
                 <i class="fa-solid fa-phone-volume"></i> 081227125158
-                <span>Untuk emergensi saat darurat</span>
+                <span>For use in an emergency</span>
             </a>
         </div>
     </section>
@@ -324,5 +357,6 @@
 
     <!-- Hubungkan file JS eksternal -->
     <script src="script.js"></script>
+    <script src="menu.js" defer></script>
 </body>
 </html>
